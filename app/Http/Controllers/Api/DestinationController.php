@@ -5,14 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Destination;
 use Illuminate\Http\Request;
+use App\Http\Resources\DestinationResource;
+
 
 class DestinationController extends Controller
 {
     // Get semua destinasi
     public function index()
-    {
-        return response()->json(Destination::all());
-    }
+{
+    return DestinationResource::collection(Destination::all());
+}
 
     // Simpan destinasi baru
     public function store(Request $request)
